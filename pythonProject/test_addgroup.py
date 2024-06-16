@@ -14,37 +14,37 @@ class TestAddgroup():
   
   def test_addgroup(self):
     self.Open_home_page()
-    self.Login()
+    self.Login("admin", "secret")
     self.Open_group_page()
-    self.Creat_group()
+    self.Creat_group("sdf", "sdf", "sdf")
     self.logout()
 
   def logout(self):
     # Logout
     self.driver.find_element(By.LINK_TEXT, "Logout").click()
 
-  def Creat_group(self):
+  def Creat_group(self, name_group, group_header, group_footer):
     # Creat group
     self.driver.find_element(By.NAME, "new").click()
     self.driver.find_element(By.ID, "content").click()
     self.driver.find_element(By.NAME, "group_name").click()
-    self.driver.find_element(By.NAME, "group_name").send_keys("sdf")
+    self.driver.find_element(By.NAME, "group_name").send_keys(name_group)
     self.driver.find_element(By.NAME, "group_header").click()
-    self.driver.find_element(By.NAME, "group_header").send_keys("sdf")
+    self.driver.find_element(By.NAME, "group_header").send_keys(group_header)
     self.driver.find_element(By.NAME, "group_footer").click()
-    self.driver.find_element(By.NAME, "group_footer").send_keys("sdf")
+    self.driver.find_element(By.NAME, "group_footer").send_keys(group_footer)
     self.driver.find_element(By.NAME, "submit").click()
 
   def Open_group_page(self):
     # Open group page
     self.driver.find_element(By.LINK_TEXT, "groups").click()
 
-  def Login(self):
+  def Login(self, username, password):
     # Login
     self.driver.find_element(By.NAME, "user").click()
-    self.driver.find_element(By.NAME, "user").send_keys("admin")
+    self.driver.find_element(By.NAME, "user").send_keys(username)
     self.driver.find_element(By.NAME, "pass").click()
-    self.driver.find_element(By.NAME, "pass").send_keys("secret")
+    self.driver.find_element(By.NAME, "pass").send_keys(password)
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(7)").click()
 
   def Open_home_page(self):
