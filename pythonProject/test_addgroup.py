@@ -19,6 +19,13 @@ class TestAddgroup():
     self.Creat_group("sdf", "sdf", "sdf")
     self.logout()
 
+  def test_empty_addgroup(self):
+    self.Open_home_page()
+    self.Login("admin", "secret")
+    self.Open_group_page()
+    self.Creat_group("", "", "")
+    self.logout()
+      
   def logout(self):
     # Logout
     self.driver.find_element(By.LINK_TEXT, "Logout").click()
@@ -34,6 +41,7 @@ class TestAddgroup():
     self.driver.find_element(By.NAME, "group_footer").click()
     self.driver.find_element(By.NAME, "group_footer").send_keys(group_footer)
     self.driver.find_element(By.NAME, "submit").click()
+
 
   def Open_group_page(self):
     # Open group page
