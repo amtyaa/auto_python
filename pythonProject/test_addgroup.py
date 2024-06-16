@@ -50,5 +50,5 @@ class TestAddgroup():
   def Open_home_page(self):
     # Open home page
     self.driver.get("http://localhost/addressbook/")
-    self.driver.set_window_size(550, 692)
+
   
