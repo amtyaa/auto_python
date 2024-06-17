@@ -2,6 +2,7 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from group import Group
 
 
 class TestAddgroup():
@@ -16,30 +17,30 @@ class TestAddgroup():
     self.Open_home_page()
     self.Login("admin", "secret")
     self.Open_group_page()
-    self.Creat_group("sdf", "sdf", "sdf")
+    self.Creat_group(Group("sdf", "sdf", "sdf"))
     self.logout()
 
   def test_empty_addgroup(self):
     self.Open_home_page()
     self.Login("admin", "secret")
     self.Open_group_page()
-    self.Creat_group("", "", "")
+    self.Creat_group(Group("","",""))
     self.logout()
 
   def logout(self):
     # Logout
     self.driver.find_element(By.LINK_TEXT, "Logout").click()
 
-  def Creat_group(self, name_group, group_header, group_footer):
+  def Creat_group(self, group):
     # Creat group
     self.driver.find_element(By.NAME, "new").click()
     self.driver.find_element(By.ID, "content").click()
     self.driver.find_element(By.NAME, "group_name").click()
-    self.driver.find_element(By.NAME, "group_name").send_keys(name_group)
+    self.driver.find_element(By.NAME, "group_name").send_keys(group.name_group)
     self.driver.find_element(By.NAME, "group_header").click()
-    self.driver.find_element(By.NAME, "group_header").send_keys(group_header)
+    self.driver.find_element(By.NAME, "group_header").send_keys(group.header_group)
     self.driver.find_element(By.NAME, "group_footer").click()
-    self.driver.find_element(By.NAME, "group_footer").send_keys(group_footer)
+    self.driver.find_element(By.NAME, "group_footer").send_keys(group.footer_group)
     self.driver.find_element(By.NAME, "submit").click()
 
 
