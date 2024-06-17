@@ -25,7 +25,7 @@ class TestAddgroup():
     self.Open_group_page()
     self.Creat_group("", "", "")
     self.logout()
-      
+
   def logout(self):
     # Logout
     self.driver.find_element(By.LINK_TEXT, "Logout").click()
