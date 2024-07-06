@@ -10,12 +10,12 @@ def app(request):
 
 
 def test_addgroup(app):
-    app.Login("admin", "secret")
+    app.session.Login("admin", "secret")
     app.Creat_group(Group("sdf", "sdf", "sdf"))
-    app.logout()
+    app.session.Logout()
 
 
 def test_empty_addgroup(app):
-    app.Login("admin", "secret")
+    app.session.Login("admin", "secret")
     app.Creat_group(Group("","",""))
-    app.logout()
+    app.session.Logout()
