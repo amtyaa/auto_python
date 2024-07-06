@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-
+from fixture.contact import ContactHelper
 from fixture.group import GroupHelper
 from fixture.session import SessionHelper
 
@@ -12,6 +12,7 @@ class Application:
         self.vars = {}
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
+        self.contact = ContactHelper(self)
 
     def destroy(self):
         # Разрушает фикстуру
