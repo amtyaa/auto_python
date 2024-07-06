@@ -16,3 +16,9 @@ class GroupHelper():
         self.app.driver.find_element(By.NAME, "group_footer").click()
         self.app.driver.find_element(By.NAME, "group_footer").send_keys(group.footer_group)
         self.app.driver.find_element(By.NAME, "submit").click()
+
+    def delete_first_group(self):
+        self.app.driver.find_element(By.LINK_TEXT, "groups").click()
+        # Выделить первую группу и удалить
+        self.app.driver.find_element(By.NAME, "selected[]").click()
+        self.app.driver.find_element(By.NAME, "delete").click()
