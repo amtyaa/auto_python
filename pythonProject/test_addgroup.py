@@ -14,6 +14,7 @@ def test_addgroup(app):
     app.Creat_group(Group("sdf", "sdf", "sdf"))
     app.logout()
 
+
 def test_empty_addgroup(app):
     app.Login("admin", "secret")
     app.Creat_group(Group("","",""))
